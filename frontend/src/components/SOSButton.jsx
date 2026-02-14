@@ -28,7 +28,7 @@ const SOSButton = ({ userId }) => {
         setAlertSent(true);
         navigator.vibrate([200, 100, 200]); // Haptic feedback
         try {
-            await axios.post('http://localhost:5000/api/alerts', {
+            await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/alerts`, {
                 userId,
                 location: { lat: 12.9716, lng: 77.5946, address: "Koramangala, Bangalore" }, // Mock location
                 type: 'SOS',

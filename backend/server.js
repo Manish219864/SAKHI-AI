@@ -37,7 +37,11 @@ if (process.env.MONGO_URI) {
     console.log('No MONGO_URI found. Running in offline mode.');
 }
 
-// Start Server
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+// Start Server (Only if not running in Vercel/Serverless environment)
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`Server running on port ${PORT}`);
+    });
+}
+
+module.exports = app;

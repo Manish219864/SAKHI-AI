@@ -5,7 +5,16 @@ const User = require('../models/User');
 // const jwt = require('jsonwebtoken'); // Simulating JWT for prototype
 
 // In-Memory Fallback
-const mockUsers = [];
+const mockUsers = [
+    {
+        _id: "demo-user-id",
+        name: "Demo User",
+        phoneNumber: "1234567890",
+        password: "demo",
+        sakhiId: "SAKHI-DEMO-2026",
+        emergencyContacts: []
+    }
+];
 
 // Register
 router.post('/register', async (req, res) => {
